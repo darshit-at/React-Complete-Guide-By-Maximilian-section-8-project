@@ -1,0 +1,39 @@
+
+
+
+.error-controls {
+    background: white;
+    width: 580px;
+    height: 190px;
+position: fixed;
+    border-radius: 15px;
+    transform: translate(0% ,60%);
+    z-index: 22;
+    padding: 0px;
+}
+.invaild_input {
+    background-color: blueviolet;
+    width: 100%;
+margin-top: -20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius:15px;
+    height: 50px;
+}
+.invaild_input h2 {
+    padding: 7px 10px;
+}
+
+.error-message h4 {
+
+    font-size: 17px;
+margin-top: 13px;
+margin-left: 10px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.error-button {
+    float: right;
+  position: relative;
+  right: 20px;
+}
+
