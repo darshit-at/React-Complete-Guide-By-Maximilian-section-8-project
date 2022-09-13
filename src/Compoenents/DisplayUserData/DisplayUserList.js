@@ -4,7 +4,7 @@ import DisplayUserData from './DisplayUserData';
 
 const DisplayUserList = (props) => {
   return (
-    <>
+    <React.Fragment>
       {props.dataes.map((data) => {
         return (
           <div className='display-data-control' key={`data ${data.id}`} >
@@ -19,7 +19,7 @@ const DisplayUserList = (props) => {
           </div>
         )
       })}
-    </>
+    </React.Fragment>
 
 
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ErrorMessage from './ErrorMessage';
+import  ReactDOM  from 'react-dom';
 import './UserInputForm.css'
 const UserInputForm = (props) => {
     const [userName, setUserName] = useState('');
@@ -33,12 +34,15 @@ const UserInputForm = (props) => {
             return;
         }
 
-
+      
+     
         const userData = {
             userName: userName.charAt(0).toUpperCase() + userName.slice(1),
             userAge: userAge
         }
         props.onGetDataHandler(userData);
+        props.onErrorComponentsRender('#1f1f1f');
+        setIsAddValue(true);
         setUserName(''); setUserAge('');
     };
 
@@ -49,7 +53,7 @@ const UserInputForm = (props) => {
 
 
     return (
-        <>
+        <React.Fragment>
             <div className='form-control'>
 
                 <form onSubmit={handleSubmit}>
@@ -65,12 +69,15 @@ const UserInputForm = (props) => {
                         <button type="submit" >Add user</button>
                     </div>
                 </form>
-
             </div>
             <div>
-                {!isAddValue && <ErrorMessage errorMessage={errorMessage} onExitErrorBox={exitErrorBoxHandler} onErrorComponentsRender={props.onErrorComponentsRender} />}
+                {!isAddValue &&
+                ReactDOM.createPortal(<ErrorMessage errorMessage={errorMessage} onExitErrorBox={exitErrorBoxHandler} onErrorComponentsRender={props.onErrorComponentsRender} />,
+                    document.getElementById('back-drop')
+                  )
+              }
             </div>
-        </>
+        </React.Fragment>
 
     )
 };
